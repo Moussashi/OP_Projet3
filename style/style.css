@@ -43,7 +43,7 @@ body {
 #location {
   background-color: #e4e1e6;
   text-align: center;
-  padding: 15px;
+  padding: 4%;
   font-weight: bold;
 }
 
@@ -88,6 +88,7 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
+  width: 95%;
 }
 
 .num {
@@ -100,14 +101,14 @@ body {
   position: absolute;
   left: 8%;
   top: 30%;
-  padding: 5px;
+  padding: 1%;
   line-height: 15px;
 }
 
 i {
   margin-right: 12px;
   font-size: 1.2rem;
-  color: #7c7c7c;
+  /*color: rgb(124, 124, 124);*/
 }
 
 .bubble {
@@ -120,6 +121,7 @@ i {
   -webkit-box-shadow: 0 15px 6px -5px #e2e2e2;
           box-shadow: 0 15px 6px -5px #e2e2e2;
   margin-left: 10%;
+  font-size: 0.95rem;
   -webkit-transition-property: background;
   transition-property: background;
   -webkit-transition-duration: 500ms;
@@ -213,30 +215,6 @@ nav .steps {
   cursor: pointer;
 }
 
-.fa-heart {
-  position: absolute;
-  right: 10%;
-  top: 73%;
-  color: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 1s;
-          transition-duration: 1s;
-}
-
-.fa-heart:hover {
-  color: linear-gradient(to bottom right, #FF79DA, #9356DC);
-}
-
-#test {
-  width: 86%;
-  height: 230px;
-  background-image: url("../source/toa.jpg");
-  background-position: center;
-  background-size: cover;
-  margin-left: 7%;
-}
-
 footer {
   background-color: #302f2f;
   color: #f0eaea;
@@ -260,7 +238,7 @@ footer p {
 
 /**************************************************
 ***************************************************
-***********   PAGE 2  BASTILLE          **************
+***********   PAGES ANNEXE         **************
 ***************************************************
 ***************************************************/
 .fa-arrow-left {
@@ -272,8 +250,7 @@ footer p {
 
 #topImage {
   width: 100%;
-  height: 230px;
-  background-image: url("../source/toa.jpg");
+  height: auto;
   background-position: center;
   background-size: cover;
 }
@@ -284,16 +261,18 @@ footer p {
   background-color: #e6e4e4;
   border-radius: 30px 30px 0 0;
   padding-bottom: 2%;
+  bottom: 25px;
 }
 
 #menu h1 {
+  padding-top: 5%;
   font-family: Shrikhand;
   margin-left: 3%;
 }
 
 #menu #heartBis {
   position: absolute;
-  top: 2%;
+  top: 4%;
 }
 
 #menu h2 {
@@ -301,6 +280,7 @@ footer p {
   font-weight: 100;
   padding-bottom: 3px;
   margin-left: 3%;
+  margin-top: 5%;
 }
 
 #menu .greenLine {
@@ -316,6 +296,13 @@ footer p {
   margin-bottom: 2%;
   margin: 3%;
   border-radius: 15px;
+  position: relative;
+  -webkit-box-shadow: 0 15px 6px -5px #e2e2e2;
+          box-shadow: 0 15px 6px -5px #e2e2e2;
+  -webkit-transition-property: display, margin;
+  transition-property: display, margin;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
 
 #menu .food .plat {
@@ -329,6 +316,47 @@ footer p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #302f2f;
+}
+
+#menu .food .valid {
+  background-color: #9356DC;
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border-radius: 0px 15px 15px 0px;
+  display: none;
+}
+
+#menu .food .valid:hover {
+  cursor: pointer;
+}
+
+#menu .food .valid:hover .fa-check-circle {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+#menu .food .valid .fa-check-circle {
+  color: white;
+  margin-top: 25%;
+  margin-left: 35%;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+#menu .food:hover .valid {
+  display: inline;
+}
+
+#menu .food:hover .price {
+  margin-right: 20%;
 }
 
 #menu .orderBtn {
@@ -342,5 +370,77 @@ footer p {
   -webkit-box-shadow: 0 15px 6px -5px #e2e2e2;
           box-shadow: 0 15px 6px -5px #e2e2e2;
   margin: 7% 30% 15% 30%;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 480px) {
+  #page {
+    max-width: none;
+  }
+  body {
+    width: 100%;
+  }
+  header h1 {
+    font-size: 4rem;
+  }
+  #book #explorebtn {
+    width: 30%;
+  }
+  #htw {
+    width: 100%;
+    margin-left: 42%;
+  }
+  .htwBubble {
+    width: 50%;
+    margin: auto;
+  }
+  #restaurants {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #restaurants #grille {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 100%;
+  }
+  #restaurants .vignette {
+    width: 350px;
+    height: auto;
+    margin: 0;
+  }
+  figure #topImage {
+    width: 50%;
+    height: auto;
+    border: #302f2f solid 10px;
+  }
+  #menu h2 {
+    font-size: 1.5rem;
+  }
+  #menu .food {
+    width: 50%;
+    margin: 2% auto;
+  }
+  #menu .food .valid .fa-check-circle {
+    font-size: 1.5rem;
+    margin: 35% 30%;
+  }
+  #menu .food .orderBtn {
+    margin-left: 45%;
+  }
+  #menu footer h3 {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
