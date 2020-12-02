@@ -1,7 +1,8 @@
 $primaryColor: #9356DC;
 $secondaryColor: #FF79DA;
-$fakeBlack: rgb(48, 47, 47);
+$fakeBlack: rgb(53, 53, 53);
 $shadow: 0 15px 6px -5px rgb(226, 226, 226);
+$linear: linear-gradient(to bottom right, $secondaryColor, $primaryColor);
 
 
 @font-face {
@@ -18,12 +19,73 @@ $shadow: 0 15px 6px -5px rgb(226, 226, 226);
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+#spinner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+    animation-name:spinner;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    #loader {
+        width: 50px;
+        height: 50px;
+        background-color: grey;
+        margin-top: 30%;
+        margin-left: 30%;
+        animation-name: loader;
+        animation-duration: 2.5s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes loader {
+        25% {
+            margin-left: 60%;
+            margin-top: 30%;
+            background-color: blue;
+            border-radius: 30px 0px 0px 0px;
+        }
+        50% {
+            margin-top: 55%;
+            margin-left: 60%;
+            background-color: white;
+            border-radius: 30px 30px 0px 0px;
+        }
+        75% {
+            margin-top: 55%;
+            margin-left: 30%;
+            background-color: red;
+            border-radius: 30px 30px 30px 0px;
+        }
+        100% {
+            margin-left: 30%;
+            margin-top: 30%;
+            background-color: red;
+            border-radius: 30px 30px 30px 30px;
+        }
+    }
+
+}
+@keyframes spinner{
+    0% {
+       opacity: 1; 
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
 header {
     h1 {
         font-family: Shrikhand;
         padding: 3%;
         text-align: center;
     }
+}
+/* A VOIR : OMBRE SOUS LE TITRE*/
+#shadow {
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(192, 192, 192), rgb(228, 225, 230));
+    height: 5px;
 }
 h2 {
     padding-bottom: 9%;
@@ -35,9 +97,8 @@ body {
 #page {
     display: flex;
     flex-direction: column;
-    max-width: 480px;
 }
-#location {
+#location p {
     background-color: rgb(228, 225, 230);
     text-align: center;
     padding: 4%;
@@ -50,7 +111,7 @@ body {
 
     p {
         padding-bottom: 5%;
-        color: $fakeBlack;
+        color: rgb(100, 100, 100);
     }
     h2 {
         font-weight: bolder;
@@ -58,6 +119,7 @@ body {
 
     #explorebtn {
         border: none;
+        font-weight: 550;
         padding: 14px;
         border-radius: 50px;
         color: white;
@@ -93,7 +155,7 @@ body {
 i {
     margin-right: 12px;
     font-size: 1.2rem;
-    /*color: rgb(124, 124, 124);*/
+    color: rgb(124, 124, 124);
 }
 .bubble {
     background-color: rgb(245, 244, 244);
@@ -129,27 +191,63 @@ nav {
     }
 }
 #restaurants {
-    background-color:  rgb(226, 226, 226);
+    background-color:  rgb(240, 239, 239);
     padding-top: 20px;
+    padding-bottom: 5%;
     h3 {
         margin-left: 7%;
         font-weight: bolder;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .vignette {
         margin-left: 7%;
         padding-top: 20px;
         padding-bottom: 5%;
         position: relative;
+        p {
+            margin-top: 10px;
+        }
     }
     .texteVignette {
         background-color: white;
         width: 93%;
         border-radius: 0 0 20px 20px;
         padding-top: 15px;
-        padding-bottom: 30px;
-        &:hover {
-            cursor: pointer;
+        padding-bottom: 5px;
+        box-shadow: $shadow;
+        p {
+            line-height: 2px;
+            padding-bottom: 5%;
+        }
+        .fa-heart {
+            font-size: 25px;
+            position: absolute;
+            right: 12%;
+            top: 78%;
+
+        }
+        .heart1 {
+            opacity: 1;
+        }
+        .heart2 {
+            opacity: 0;
+            background: linear-gradient(to bottom right, $primaryColor, $secondaryColor);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            &:hover {
+                cursor: pointer;
+                animation-name: colorHeart;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+    @keyframes colorHeart {
+        0% {
+                opacity: 0;        
+        }
+        100% {
+                opacity: 1;
         }
     }
     .txt {
@@ -167,13 +265,27 @@ nav {
         right: 15%;
         padding: 4px;
     }
-    img {
+    .images {
+        background-size: cover;
+        background-position: center;
         width: 93%;
         height: 200px;
         border-radius: 30px 30px 0 0;
         &:hover {
             cursor: pointer;
         }
+    }
+    .jay {
+        background-image: url("../../Projet3/source/jay-wennington.jpg");
+    }
+    .stil {
+        background-image: url("../../Projet3/source/stil.jpg");
+    }
+    .toa {
+        background-image: url("../../Projet3/source/toa.jpg");
+    }
+    .louis {
+        background-image: url("../../Projet3/source/louis-hansel.jpg");
     }
 }
 footer {
@@ -189,6 +301,8 @@ footer {
     }
     i {
         margin-right: 10px;
+        color: white;
+        font-size: 0.9rem;
     }
     p {
         margin-bottom: 2%;
@@ -206,6 +320,9 @@ footer {
     margin-left: 3%;
     color: black;
 }
+main {
+    background-color:rgb(240, 239, 239);
+}
 #topImage {
     width: 100%;
     height: auto;
@@ -215,18 +332,28 @@ footer {
 #menu {
     position: relative;
     width: 100%;
-    background-color: rgb(230, 228, 228);
+    bottom: 27px;
+    background-color: rgb(240, 239, 239);
     border-radius: 30px 30px 0 0;
     padding-bottom: 2%;
-    bottom: 25px;
     h1 {
         padding-top: 5%;
+        width: 100%;
+        font-size: 1.6rem;
         font-family: Shrikhand;
         margin-left: 3%;
     }
-    #heartBis {
-        position: absolute;
-        top: 4%;
+    #enchanted {
+        font-size: 1.1rem;
+    }
+    #cardName {
+        display: flex;
+        justify-content: space-between;
+        .fa-heart {
+            font-size: x-large;
+            margin-top: 7%;
+            margin-left: 30%;
+        }
     }
     h2 {
         font-size: medium;
@@ -238,147 +365,218 @@ footer {
     .greenLine {
         height: 3px;
         background-color:  #99E2D0;
-        width: 9%;
+        width: 11%;
         margin-left: 3%;
     }
-    .food {
-        background-color: rgb(250, 245, 245);
-        padding: 2%;
+    .animation {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
         margin-bottom: 2%;
         margin: 3%;
         border-radius: 15px;
         position: relative;
         box-shadow: $shadow;
-        .plat {
-            font-weight: bold;
-        }
-        .secondLineFood {
-            display: flex;
-            justify-content: space-between;
-            color: $fakeBlack;
-        }
-        .valid {
-            background-color: $primaryColor;
-            width: 15%;
-            height: 100%;
-            position: absolute;
-            right: 0px;
-            top: 0px;
-            border-radius: 0px 15px 15px 0px;
-            display: none;
-            &:hover {
-                cursor: pointer;
-                .fa-check-circle {
-                    transform: rotate(360deg);
-                }
-                
-            }
-            .fa-check-circle {
-                color: white;
-                margin-top: 25%;
-                margin-left: 35%;
-                transition-property: transform;
-                transition-duration: 1s;
-            }
-        }
-        transition-property: display, margin;
-        transition-duration: 1s;
         &:hover {
+            cursor: pointer;
+            .food {
+                width: 85%;
+                border-radius: 15px 0 0 15px;
+            }
             .valid {
-                display: inline;
+                width: 15%;
+                transition-property: width;
+                transition-duration: 1s;
+                i {
+                    opacity: 1;
+                    animation-name: rotate;
+                    animation-duration: 1s;
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+        .food {
+            background-color: rgb(250, 245, 245);
+            padding: 2%;
+            width: 100%;
+            border-radius: 15px;
+            transition-property: width border-radius;
+            transition-duration: 1s;
+            .plat {
+                font-weight: bold;
+            }
+            .secondLineFood {
+                display: flex;
+                justify-content: space-between;
+                color: $fakeBlack;
+                font-size: 0.9rem;
             }
             .price {
-                margin-right: 20%;
+                font-weight: 600;
             }
-
         }
+        .fade1 {
+            animation: fadein 1s;
+        }
+        .fade2 {
+            animation: fadein 2s;
+        }
+        .fade3 {
+            animation: fadein 3s;
+        }
+        
+        .valid {
+            height: inherit;
+            border-radius: 0 15px 15px 0;
+            background-color: #99E2D0;
+            width: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                opacity: 0;
+                color: white;
+            }
+    
+        }
+    }
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+    #order {
+        display: flex;
+        justify-content: center;
     }
     .orderBtn {
         border: none;
-        padding: 14px;
+        padding: 3% 2% 3% 2%;
         border-radius: 50px;
         color: white;
-        width: 200px;
+        width: 40%;
         background: linear-gradient(to bottom right, $secondaryColor, $primaryColor);
         box-shadow: $shadow;
-        margin:  7% 30% 15% 30%;
+        margin: 10% 0;
         cursor: pointer;
+        font-size: 80%;
       }
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+}
+/*******************************************
+********************************************
+******          RESPONSIVE             *****
+********************************************
+*******************************************/
 
 @media only screen and (min-width: 480px) {
-#page {
-    max-width: none;
-}
-body {
-    width: 100%;
-}
-header {
-    h1 {
-        font-size: 4rem;
+    #page {
+        font-size: 1.5rem;
     }
-}
-#book {
-    #explorebtn {
-        width: 30%;
+    header {
+        width: 100%;
+        h1 {
+            font-size: 4rem;
+        }
     }
-}
-#htw {
-    width: 100%;
-    margin-left: 42%;
-}
-.htwBubble {
-    width: 50%;
-    margin: auto;
-}
-#restaurants {
-    display: flex;
-    flex-wrap: wrap;
-    #grille {
+    #book {
+        #explorebtn {
+            width: 40%;
+            font-size: 1.2rem;   
+        }
+    }
+    #htw {
+        width: 100%;
+        margin-left: 42%;
+    }
+    .htwBubble {
+        width: 60%;
+        margin: auto;
+    }
+    .bubble {
+        font-size: 1.3rem;
+    }
+    #restaurants {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .vignette {
-        width: 350px;
-        height: auto;
-        margin: 0;
-
-
-    }
-}
-figure {
-    #topImage {
-        width: 50%;
-        height: auto;
-        border: $fakeBlack solid 10px;
-    }
-}
-#menu {
-    h2 {
-        font-size: 1.5rem;
-    }
-    .food {
-        width: 50%;
-        margin: 2% auto;
-        .valid {
-            .fa-check-circle {
+        h3 {
+            font-size: 2rem;
+        }
+        #grille {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+        .txt {
+            font-size: 1.5rem;
+        }
+        .vignette {
+            width: 350px;
+            height: auto;
+            margin: 0;
+            .new {
                 font-size: 1.5rem;
-                margin: 35% 30%;
+            }
+            .fa-heart {
+                display: block;
+                top: 70%;
             }
         }
+    }
+    figure {
+        display: flex;
+        background-color: white;
+        justify-content: center;
+        #topImage {
+            width: 50%;
+            height: auto;
+            border: $fakeBlack solid 10px;
+            
+        }
+    }
+    #menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        #cardName {
+            h1 {
+                font-size: 2rem;
+            }
+            i {
+                
+            }
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .animation {
+            width: 50%;
+            .food {
+                font-size: 0.95rem;
+            }
+        }
+        #order {
+            width: 50%;
+        }
+    }
 
-    
-    .orderBtn {
-        margin-left: 45%;
+    footer {
+        h3 {
+            font-size: 1.5rem;
+        }
     }
-}
-footer {
-    h3 {
-        font-size: 1.5rem;
-    }
-}
-} 
+     
+
 }
