@@ -4,7 +4,7 @@ $fakeBlack: rgb(53, 53, 53);
 $shadow: 0 15px 6px -5px rgb(226, 226, 226);
 $linear: linear-gradient(to bottom right, $secondaryColor, $primaryColor);
 
-
+/*Project fonts*/
 @font-face {
     font-family: Roboto;
     src: url("../source/Roboto/Roboto-Regular.ttf") format('trutype');
@@ -19,6 +19,7 @@ $linear: linear-gradient(to bottom right, $secondaryColor, $primaryColor);
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+/*SPINNER ON FULL PAGE AT THE START*/
 #spinner {
     position: absolute;
     height: 100%;
@@ -27,6 +28,7 @@ $linear: linear-gradient(to bottom right, $secondaryColor, $primaryColor);
     animation-name:spinner;
     animation-duration: 4s;
     animation-fill-mode: forwards;
+    /*LOADER*/
     #loader {
         width: 50px;
         height: 50px;
@@ -81,7 +83,7 @@ header {
         text-align: center;
     }
 }
-/* A VOIR : OMBRE SOUS LE TITRE*/
+/* FIRST SHADOW UNDER THE HEADER*/
 #shadow {
     width: 100%;
     background: linear-gradient(to bottom, rgb(192, 192, 192), rgb(228, 225, 230));
@@ -236,12 +238,13 @@ nav {
             -webkit-text-fill-color: transparent;
             &:hover {
                 cursor: pointer;
-                animation-name: colorHeart;
+                animation-name: colorHeart; 
                 animation-duration: 1s;
                 animation-fill-mode: forwards;
             }
         }
     }
+    /*HEART APPEARING WHEN HOVER*/
     @keyframes colorHeart {
         0% {
                 opacity: 0;        
@@ -276,16 +279,16 @@ nav {
         }
     }
     .jay {
-        background-image: url("../../Projet3/source/jay-wennington.jpg");
+        background-image: url("Projet3/source/jay-wennington.jpg");
     }
     .stil {
-        background-image: url("../../Projet3/source/stil.jpg");
+        background-image: url("Projet3/source/stil.jpg");
     }
     .toa {
-        background-image: url("../../Projet3/source/toa.jpg");
+        background-image: url("Projet3/source/toa.jpg");
     }
     .louis {
-        background-image: url("../../Projet3/source/louis-hansel.jpg");
+        background-image: url("Projet3/source/louis-hansel.jpg");
     }
 }
 footer {
@@ -376,6 +379,7 @@ main {
         border-radius: 15px;
         position: relative;
         box-shadow: $shadow;
+        /*WHEN HOVER, FOOD IS REDUCING WHILE VALID IS GROWING, AT THE SAME TIME THE ANIMATION ROTATE IS TRIGGERED FOR THE SPIN*/
         &:hover {
             cursor: pointer;
             .food {
@@ -414,6 +418,7 @@ main {
                 font-weight: 600;
             }
         }
+        /* ANIMATION TO MAKE THE DIFFERENT PARTS OF THE MENU APPEAR BUT NOT AT THE SAME TIME*/
         .fade1 {
             animation: fadein 1s;
         }
@@ -477,7 +482,7 @@ main {
 ******          RESPONSIVE             *****
 ********************************************
 *******************************************/
-
+/* I TRIED A RESPONSIVE DESIGN WITH ONLY ONE BREAKPOINT, PROBABLY NOT THE BEST SOLUTION*/
 @media only screen and (min-width: 480px) {
     #page {
         font-size: 1.1rem;
